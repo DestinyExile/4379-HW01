@@ -349,11 +349,15 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/Scripts/AudioHelper.cs"
+"Assets/Scripts/CollectibleBase.cs"
+"Assets/Scripts/Common/AudioHelper.cs"
 "Assets/Scripts/Enemy.cs"
+"Assets/Scripts/HealthIncrease.cs"
 "Assets/Scripts/Killer.cs"
 "Assets/Scripts/Player.cs"
+"Assets/Scripts/SpeedIncrease.cs"
 "Assets/Scripts/TankController.cs"
+"Assets/Scripts/Treasure.cs"
 -langversion:9.0
 
 /deterministic
