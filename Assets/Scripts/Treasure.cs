@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Treasure : MonoBehaviour
+public class Treasure : CollectibleBase
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Collect(Player player)
     {
-        
+        player.IncreaseTreasure();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

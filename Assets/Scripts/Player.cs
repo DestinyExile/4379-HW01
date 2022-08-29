@@ -1,18 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(TankController))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] Text treasureCountText;
+
     [SerializeField] int _maxHealth = 3;
     int _currentHealth;
+    public int CurrentHealth
+    {
+        get
+        {
+            return _currentHealth;
+        }
+        set
+        {
+            if(value > _maxHealth)
+            {
+                value = _maxHealth;
+            }
+
+            _currentHealth = value;
+        }
+    }
 
     TankController _tankController;
+    Inventory inventory;
 
     private void Awake()
     {
         _tankController = GetComponent<TankController>();
+        inventory = GetComponent<Inventory>();
     }
 
     void Start()
@@ -42,5 +63,11 @@ public class Player : MonoBehaviour
         gameObject.SetActive(false);
         //play particles
         //play sounds
+    }
+
+    public void IncreaseTreasure()
+    {
+        inventory.treasureCount++;
+        treasureCountText.text = "Treasure Count: " + inventory.treasureCount;
     }
 }

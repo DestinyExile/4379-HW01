@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpeedIncrease : CollectibleBase
 {
-    [SerializeField] float _speedAmount = .5f;
+    [SerializeField] float _speedAmount = .25f;
 
     protected override void Collect(Player player)
     {
