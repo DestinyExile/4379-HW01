@@ -11,6 +11,9 @@ public abstract class PowerUpBase : MonoBehaviour
     protected abstract void PowerUp();
     protected abstract void PowerDown();
 
+    [SerializeField] ParticleSystem _powerupParticles;
+    [SerializeField] AudioClip _powerupSound;
+
     [SerializeField] Collider _collider;
     [SerializeField] MeshRenderer _meshRenderer;
 
@@ -26,6 +29,7 @@ public abstract class PowerUpBase : MonoBehaviour
         powerupActive = true;
         _collider.enabled = false;
         _meshRenderer.enabled = false;
+        Feedback();
         
     }
 
@@ -47,5 +51,20 @@ public abstract class PowerUpBase : MonoBehaviour
         powerupDuration = 3f;
         PowerDown();
         powerupActive = false;
+    }
+
+    private void Feedback()
+    {
+        //particles
+        if (_powerupParticles != null)
+        {
+            _powerupParticles = Instantiate(_powerupParticles, transform.position, Quaternion.identity);
+            _powerupParticles.Play();
+        }
+        //audio. TODO - consider Object Pooling for performance
+        if (_powerupSound != null)
+        {
+            AudioHelper.PlayClip2D(_powerupSound, 1f);
+        }
     }
 }
